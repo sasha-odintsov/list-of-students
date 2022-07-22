@@ -1,38 +1,111 @@
-.App {
-  text-align: center;
+* {
+    box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html {
+    font-size: 12px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+    font-family: sans-serif;
+    font-size: 1em;
+    background-color: #d9e8ef;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* .wrapper {
+   text-align: center;
+   width: auto;
+} */
+
+table {
+    width: 300px;
+    background-color: #fff;
+    border-radius: 10px;
+    margin: 10px auto;
+    box-shadow: 0px 4px 10px #bdcbd3;
+    border-collapse: collapse;
 }
 
-.App-link {
-  color: #61dafb;
+table th,
+table td {
+    padding: 10px 15px;
+    line-height: 1.5;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.students-list {
+    border-bottom: 1px solid #d9e8ef;
+}
+
+.students-list:last-of-type {
+    border-bottom: none;
+}
+
+table td:last-child {
+    text-align: right;
+    font-weight: bold;
+    font-size: 1.2rem; 
+}
+
+th {
+    text-align: left;
+    font-weight: bold;
+}
+
+thead tr:first-of-type {
+    font-size: 1.2rem;    
+
+}
+
+tr td:first-child {
+    padding-right: 0;
+}
+
+img {
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;    
+}
+
+.header {
+    background-color: #f1f8fb;    
+    color: #809fb3; 
+}
+
+form {
+    width: 300px;
+    margin: 0 auto;
+    background-color: #fff;
+    text-align: center;
+    padding: 10px 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px #bdcbd3;
+}
+
+select {
+    width: 270px;
+    margin-bottom: 2px;
+}
+
+input, button, select {
+    padding: 10px 5px;
+    border-radius: 2px;
+    border: 1px solid #809fb3;
+}
+
+input {
+    width: 170px;
+    margin-right: 2px;
+}
+
+button {
+    width: 98px;
+    cursor: pointer;
+    background-color: #2484c0;
+    color: #fff;
+}
+
+button:hover {
+    background-color: #2293da;
+    border: #2293da 1px solid;
 }
