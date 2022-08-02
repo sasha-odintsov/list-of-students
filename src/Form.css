@@ -1,0 +1,32 @@
+form {
+    padding: 15px;
+}
+
+select {
+    width: 270px;
+    margin-bottom: 2px;
+}
+
+input, button, select {
+    padding: 10px 5px;
+    border-radius: 5px;
+    border: 1px solid #809fb3;
+    font-family: 'Nunito', sans-serif;
+}
+
+input {
+    width: 170px;
+    margin-right: 2px;
+}
+
+button {
+    width: 98px;
+    cursor: pointer;
+    background-color: #2484c0;
+    color: #fff;
+}
+
+button:hover {
+    background-color: #2293da;
+    border: #2293da 1px solid;
+}
