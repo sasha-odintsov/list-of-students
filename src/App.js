@@ -1,70 +1,51 @@
 import { useState } from "react";
 import './App.css';
 import Form from './Form';
-import list from './data'
+import Student from "./Student";
+import data from './data'
 
-function App() {
-  let [score, setScore] = useState(0);
-  const [value, setValue] = useState();
-  const [student, setStudent] = useState();
+function App() { 
+  let [list, setList] = useState(data)
   
-  const newList = list.map((el) => ({ ...el, score: score}))
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    setScore(score += parseInt(value));
-    newList()
-  }
-
+  list.sort((a, b) => {
+    if(a.score < b.score) {
+      return 1;
+    }
+    if(a.score > b.score) {
+      return -1;
+    }
+    return 0
+  })
+  
   return (
     <div className="App">
       <table>
-          <thead>
-            <tr>
-              <th colSpan="4">Рейтинг группы</th>
-            </tr>
-            <tr className="header">   
-              <th colSpan="3">Студент</th>
-              <th className="header-heading">ДЗ/Баллы</th>
-            </tr> 
-          </thead>
-          <tbody>
-              {newList.map((element, index) => {
-                return(
-                  <tr key={element.id} className="students-list">
-                    <td>
-                      <span>{index + 1}</span>
-                    </td>
-                    <td >
-                      <img src={element.studentPhoto} alt="student"/>
-                    </td>
-                    <td>
-                      <div>{element.studentName}</div>
-                      <div>{element.studentSurname}</div>
-                    </td>
-                    <td>
-                      <div>{element.doneDz}</div>
-                      <div>{element.score}</div>
-                    </td>
-                  </tr>)
-                })
-              }
-          </tbody>
-        </table>
-        <form onSubmit={handleSubmit}>
-          <select onChange={(event) => setStudent(event.target.value)}>
-            <option value="">Выбор студента</option>
-            {list.map((el) => {
-              return <option key={el.id} value={el.id}>{el.studentName} {el.studentSurname}</option>
-            })}
-          </select>
-          <input
-            type="number"
-            placeholder="Бал"
-            value={value}
-            onChange={(e) => setValue(e.target.value)}
-          />
-          <button type="submit" >Отправить</button>
-        </form>
+        <thead>
+          <tr>
+            <th colSpan="4">Рейтинг группы</th>
+          </tr>
+          <tr className="header">   
+            <th colSpan="3">Студент</th>
+            <th className="header-heading">ДЗ/Баллы</th>
+          </tr> 
+        </thead>
+        <tbody>
+          {list.map((element, index) => {
+            return (
+              <Student 
+              key={element.id}
+              position={index + 1}
+              photo={element.studentPhoto}
+              name={element.studentName}
+              surname={element.studentSurname}
+              dz={element.doneDz}
+              score={element.score}
+              />
+            )
+          })}
+        </tbody>
+      </table>
+      <Form data={list} getList={(el) => {setList(el)}}/>
     </div>
   );
 }
