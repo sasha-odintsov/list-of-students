@@ -12,8 +12,15 @@ function Form({data, getList}) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setList(list.map((el) => ({ ...el, score: parseInt(value) + parseInt(el.score)})))
+    setList(list.map((el) => { 
+      if(student === el.studentSurname) {
+        return {...el, score: parseInt(value) + parseInt(el.score)}
+      } else {
+        return el;
+      }
+    }))
   }
+
   return (
     <form onSubmit={handleSubmit}>
       <select value={student} onChange={(event) => setStudent(event.target.value)}>
